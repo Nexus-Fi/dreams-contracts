@@ -1,0 +1,10 @@
+{
+  "network": "baseSepolia",
+  "contractAddress": "0x61B03bBECA034D161212e295D6EAb0800DadCeB1",
+  "adminAddress": "0x877d7C416b3f7bcDc457F4030d63cE66ff595d3e",
+  "validators": [
+    "0x877d7C416b3f7bcDc457F4030d63cE66ff595d3e"
+  ],
+  "deploymentTime": "2024-12-24T21:24:17.204Z",
+  "blockNumber": 19653584
+}
