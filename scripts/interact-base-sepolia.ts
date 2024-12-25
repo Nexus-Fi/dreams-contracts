@@ -83,16 +83,7 @@ async function main() {
 
 
         // 4. Print task details after deposit
-        await printTaskDetails(taskId);
-        const completeTx = await dreamsWithUser.completeTask(
-            taskId,
-            depositAmount,
-            userSigner,
-            { 
-              
-                gasLimit: 500000 // Add explicit gas limit
-            }
-        );
+        
         console.log("\n4. Marking User1's task as completed...");
 
 
