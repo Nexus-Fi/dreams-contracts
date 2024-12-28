@@ -54,7 +54,7 @@ async function main() {
         const taskId = Math.floor(Date.now() / 1000); // Use current timestamp as task ID
         const oneDay = 24 * 60 * 60;
         const deadline = taskId + oneDay; // Deadline is 24 hours from now
-
+        
         console.log("\nCreating new task...");
         console.log("Task ID:", taskId);
         console.log("Deadline:", new Date(deadline * 1000).toISOString());
@@ -106,3 +106,5 @@ main()
         console.error(error);
         process.exit(1);
     });
+
+    
