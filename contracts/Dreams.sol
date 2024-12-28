@@ -10,7 +10,7 @@ contract Dreams is AccessControl, ReentrancyGuard, Pausable {
     bytes32 public constant VALIDATOR_ROLE = keccak256("VALIDATOR_ROLE");
 
     // Constants
-    uint256 public constant MIN_STAKE = 0.01 ether;
+    // uint256 public constant MIN_STAKE = 0.01 ether;
     uint256 public constant MAX_DEADLINE = 365 days;
     uint256 public constant EMERGENCY_WITHDRAW_TIMELOCK = 30 days;
 
@@ -51,7 +51,6 @@ contract Dreams is AccessControl, ReentrancyGuard, Pausable {
     // Main Functions
     function createTask(uint256 taskId, uint256 deadline) external payable whenNotPaused nonReentrant {
         require(taskId > 0, "Invalid task ID");
-        require(msg.value >= MIN_STAKE, "Stake amount too low");
         require(deadline > block.timestamp, "Deadline must be in future");
         require(deadline <= block.timestamp + MAX_DEADLINE, "Deadline too far");
         require(tasks[taskId].owner == address(0), "Task ID taken");
