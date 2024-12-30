@@ -47,10 +47,11 @@ contract Dreams is AccessControl, ReentrancyGuard, Pausable {
         _grantRole(DEFAULT_ADMIN_ROLE, admin);
         _grantRole(ADMIN_ROLE, admin);
     }
-
+    
     // Main Functions
     function createTask(uint256 taskId, uint256 deadline) external payable whenNotPaused nonReentrant {
         require(taskId > 0, "Invalid task ID");
+        require(msg.value > 0, "Stake required");
         require(deadline > block.timestamp, "Deadline must be in future");
         require(deadline <= block.timestamp + MAX_DEADLINE, "Deadline too far");
         require(tasks[taskId].owner == address(0), "Task ID taken");
@@ -153,6 +154,7 @@ contract Dreams is AccessControl, ReentrancyGuard, Pausable {
         emit StakeWithdrawn(taskId, msg.sender, reward);
     }
 
+    
     // Internal Functions
     function _removeTask(uint256 taskId) internal {
         // Remove from allTaskIds array using swap and pop
